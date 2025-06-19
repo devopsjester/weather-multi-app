@@ -2,7 +2,7 @@
 
 from typing import Protocol
 
-from .models import Location, WeatherForecast, TemperatureUnit
+from .models import Location, TemperatureUnit, WeatherForecast
 
 
 class LocationValidatorService:
@@ -26,7 +26,7 @@ class LocationValidatorService:
     def validate_city_state_country(city: str, state: str, country: str) -> bool:
         """Validate city, state, and country inputs."""
         return bool(city.strip()) and bool(state.strip()) and bool(country.strip())
-    
+
     @staticmethod
     def validate_city_country(city: str, country: str) -> bool:
         """Validate city and country inputs (for international locations without state)."""

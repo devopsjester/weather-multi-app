@@ -2,16 +2,15 @@
 
 import structlog
 
+from weather_app.application.dtos import WeatherRequestDto, WeatherResponseDto
+from weather_app.domain.exceptions import InvalidLocationFormatError
 from weather_app.domain.models import Location, WeatherForecast
 from weather_app.domain.services import (
-    IWeatherRepository,
     ILocationRepository,
+    IWeatherRepository,
     LocationValidatorService,
     WeatherUnitsService,
 )
-from weather_app.domain.exceptions import InvalidLocationFormatError
-from weather_app.application.dtos import WeatherRequestDto, WeatherResponseDto
-
 
 logger = structlog.get_logger(__name__)
 

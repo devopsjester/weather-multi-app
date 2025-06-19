@@ -1,15 +1,16 @@
 """Unit tests for domain models."""
 
-import pytest
 from datetime import datetime
 
+import pytest
+
 from weather_app.domain.models import (
+    DailyForecast,
     Location,
     Temperature,
     TemperatureUnit,
     WeatherCondition,
     WeatherData,
-    DailyForecast,
     WeatherForecast,
 )
 

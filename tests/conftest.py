@@ -1,18 +1,19 @@
 """Test configuration and fixtures."""
 
-import pytest
 import asyncio
 from datetime import datetime
 from unittest.mock import AsyncMock, MagicMock
 
+import pytest
+
 from weather_app.domain.models import (
-    Location,
-    WeatherData,
     DailyForecast,
-    WeatherForecast,
+    Location,
     Temperature,
     TemperatureUnit,
     WeatherCondition,
+    WeatherData,
+    WeatherForecast,
 )
 
 

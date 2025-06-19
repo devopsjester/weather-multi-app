@@ -1,22 +1,22 @@
 """MCP (Model Context Protocol) server interface for VS Code integration."""
 
 import asyncio
+from typing import Any, Dict, Optional
+
 import structlog
-from typing import Dict, Any, Optional
 from fastmcp import FastMCP
 
-from weather_app.application.services import WeatherService
 from weather_app.application.dtos import WeatherRequestDto
-from weather_app.infrastructure.weather_api import OpenMeteoWeatherRepository
-from weather_app.infrastructure.location_service import OpenMeteoLocationRepository
+from weather_app.application.services import WeatherService
 from weather_app.domain.exceptions import (
-    WeatherAppException,
-    LocationNotFoundError,
     InvalidLocationFormatError,
-    WeatherDataUnavailableError,
+    LocationNotFoundError,
     NetworkError,
+    WeatherAppException,
+    WeatherDataUnavailableError,
 )
-
+from weather_app.infrastructure.location_service import OpenMeteoLocationRepository
+from weather_app.infrastructure.weather_api import OpenMeteoWeatherRepository
 
 # Configure logging
 structlog.configure(

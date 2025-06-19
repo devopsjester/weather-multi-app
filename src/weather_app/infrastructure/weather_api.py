@@ -1,26 +1,26 @@
 """Free weather API implementation using Open-Meteo."""
 
+from datetime import datetime
+from typing import Any, Dict
+
 import httpx
 import structlog
-from datetime import datetime
-from typing import Dict, Any
 
+from weather_app.domain.exceptions import (
+    LocationNotFoundError,
+    NetworkError,
+    WeatherDataUnavailableError,
+)
 from weather_app.domain.models import (
-    Location,
-    WeatherForecast,
-    WeatherData,
     DailyForecast,
+    Location,
     Temperature,
     TemperatureUnit,
     WeatherCondition,
+    WeatherData,
+    WeatherForecast,
 )
 from weather_app.domain.services import IWeatherRepository
-from weather_app.domain.exceptions import (
-    WeatherDataUnavailableError,
-    NetworkError,
-    LocationNotFoundError,
-)
-
 
 logger = structlog.get_logger(__name__)
 

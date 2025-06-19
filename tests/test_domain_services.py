@@ -2,8 +2,8 @@
 
 import pytest
 
-from weather_app.domain.services import LocationValidatorService, WeatherUnitsService
 from weather_app.domain.models import Location, TemperatureUnit
+from weather_app.domain.services import LocationValidatorService, WeatherUnitsService
 
 
 class TestLocationValidatorService:

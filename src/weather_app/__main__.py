@@ -1,11 +1,12 @@
 """Main application entry point."""
 
 import sys
+
 import click
 
 from weather_app.interfaces.cli import cli as cli_interface
-from weather_app.interfaces.web import main as web_main
 from weather_app.interfaces.mcp_server import main as mcp_main
+from weather_app.interfaces.web import main as web_main
 
 
 @click.group()
@@ -27,6 +28,7 @@ def cli(verbose, zipcode, city, state, country):
     """Run the CLI interface."""
     # Import and run CLI with parameters
     import asyncio
+
     from weather_app.interfaces.cli import get_weather_async
 
     if verbose:

@@ -1,22 +1,22 @@
 """CLI interface for the weather application."""
 
 import asyncio
-import click
-import structlog
 from typing import Optional
 
-from weather_app.application.services import WeatherService
-from weather_app.application.dtos import WeatherRequestDto
-from weather_app.infrastructure.weather_api import OpenMeteoWeatherRepository
-from weather_app.infrastructure.location_service import OpenMeteoLocationRepository
-from weather_app.domain.exceptions import (
-    WeatherAppException,
-    LocationNotFoundError,
-    InvalidLocationFormatError,
-    WeatherDataUnavailableError,
-    NetworkError,
-)
+import click
+import structlog
 
+from weather_app.application.dtos import WeatherRequestDto
+from weather_app.application.services import WeatherService
+from weather_app.domain.exceptions import (
+    InvalidLocationFormatError,
+    LocationNotFoundError,
+    NetworkError,
+    WeatherAppException,
+    WeatherDataUnavailableError,
+)
+from weather_app.infrastructure.location_service import OpenMeteoLocationRepository
+from weather_app.infrastructure.weather_api import OpenMeteoWeatherRepository
 
 # Configure logging
 structlog.configure(

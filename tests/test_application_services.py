@@ -1,13 +1,14 @@
 """Unit tests for application services."""
 
-import pytest
-from unittest.mock import AsyncMock
 from datetime import datetime
+from unittest.mock import AsyncMock
 
-from weather_app.application.services import WeatherService
+import pytest
+
 from weather_app.application.dtos import WeatherRequestDto
-from weather_app.domain.models import Location, WeatherForecast, TemperatureUnit
+from weather_app.application.services import WeatherService
 from weather_app.domain.exceptions import InvalidLocationFormatError
+from weather_app.domain.models import Location, TemperatureUnit, WeatherForecast
 
 
 @pytest.mark.asyncio

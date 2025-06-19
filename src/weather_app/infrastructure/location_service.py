@@ -3,10 +3,9 @@
 import httpx
 import structlog
 
+from weather_app.domain.exceptions import LocationNotFoundError, NetworkError
 from weather_app.domain.models import Location
 from weather_app.domain.services import ILocationRepository
-from weather_app.domain.exceptions import LocationNotFoundError, NetworkError
-
 
 logger = structlog.get_logger(__name__)
 
