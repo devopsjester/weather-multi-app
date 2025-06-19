@@ -59,8 +59,19 @@ python -m weather_app web
 **MCP Server:**
 ```bash
 python -m weather_app mcp
-# Configure in VS Code MCP settings
+# Configure in VS Code MCP settings or use .vscode/mcp.json
 ```
+
+### VS Code Integration
+
+This project includes MCP (Model Context Protocol) server integration for VS Code:
+
+1. **Automatic Setup**: The `.vscode/mcp.json` file configures the weather MCP server
+2. **Available Tools**:
+   - `get_weather_by_zipcode` - Get weather by US zipcode
+   - `get_weather_by_city` - Get weather by city/state/country  
+   - `get_weather_summary` - Get human-readable weather summary
+3. **Usage**: Ask GitHub Copilot Chat questions like "What's the weather in London using MCP?"
 
 ## Usage
 
