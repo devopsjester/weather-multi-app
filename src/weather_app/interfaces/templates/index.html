@@ -29,49 +29,49 @@
                                             <i class="fas fa-mail-bulk me-1"></i>
                                             US Zipcode
                                         </label>
-                                        <input type="text" class="form-control" id="zipcode" name="zipcode" 
-                                               placeholder="e.g., 90210" maxlength="10">
+                                        <input type="text" class="form-control" id="zipcode" name="zipcode"
+                                            placeholder="e.g., 90210" maxlength="10">
                                         <div class="form-text">Enter a US zipcode (5 or 9 digits)</div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row mt-3">
                                     <div class="col-12 text-center">
                                         <span class="badge bg-secondary">OR</span>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row g-3 mt-2">
                                     <div class="col-md-6">
                                         <label for="city" class="form-label">
                                             <i class="fas fa-city me-1"></i>
                                             City
                                         </label>
-                                        <input type="text" class="form-control" id="city" name="city" 
-                                               placeholder="e.g., Los Angeles">
+                                        <input type="text" class="form-control" id="city" name="city"
+                                            placeholder="e.g., Los Angeles">
                                     </div>
                                     <div class="col-md-6">
                                         <label for="state" class="form-label">
                                             <i class="fas fa-flag me-1"></i>
                                             State/Province
                                         </label>
-                                        <input type="text" class="form-control" id="state" name="state" 
-                                               placeholder="e.g., CA or Ontario">
+                                        <input type="text" class="form-control" id="state" name="state"
+                                            placeholder="e.g., CA or Ontario">
                                     </div>
                                     <div class="col-12">
                                         <label for="country" class="form-label">
                                             <i class="fas fa-globe me-1"></i>
                                             Country (optional for US)
                                         </label>
-                                        <input type="text" class="form-control" id="country" name="country" 
-                                               placeholder="e.g., USA, Canada, UK">
+                                        <input type="text" class="form-control" id="country" name="country"
+                                            placeholder="e.g., USA, Canada, UK">
                                         <div class="form-text">Leave blank for US locations</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-12 mt-4">
                         <button type="submit" class="btn btn-primary btn-lg">
                             <i class="fas fa-search me-2"></i>
@@ -120,7 +120,7 @@
 {% block scripts %}
 <script>
     // Clear other fields when zipcode is entered
-    document.getElementById('zipcode').addEventListener('input', function() {
+    document.getElementById('zipcode').addEventListener('input', function () {
         if (this.value.trim()) {
             document.getElementById('city').value = '';
             document.getElementById('state').value = '';
@@ -129,7 +129,7 @@
     });
 
     // Clear zipcode when city is entered
-    document.getElementById('city').addEventListener('input', function() {
+    document.getElementById('city').addEventListener('input', function () {
         if (this.value.trim()) {
             document.getElementById('zipcode').value = '';
         }

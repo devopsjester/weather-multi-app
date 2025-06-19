@@ -26,23 +26,40 @@ The application follows Onion Architecture with clear separation of concerns:
 │   └── interfaces/          # User interfaces (CLI, Web, MCP)
 ```
 
-## Installation
+## Quick Start
 
-1. Clone the repository:
+### 1. Clone and Install
 ```bash
 git clone https://github.com/devopsjester/weather-multi-app.git
 cd weather-multi-app
-```
-
-2. Create and activate a virtual environment:
-```bash
 python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+pip install -e .
 ```
 
-3. Install dependencies:
+### 2. Try the Demo
 ```bash
-pip install -r requirements.txt
+python demo.py
+```
+
+### 3. Use Any Interface
+
+**CLI:**
+```bash
+python -m weather_app cli weather --zipcode 90210
+python -m weather_app cli weather --city "London" --country "UK"
+```
+
+**Web:**
+```bash
+python -m weather_app web
+# Visit http://localhost:5000
+```
+
+**MCP Server:**
+```bash
+python -m weather_app mcp
+# Configure in VS Code MCP settings
 ```
 
 ## Usage
@@ -79,18 +96,43 @@ python -m weather_app mcp
 
 ### Running Tests
 ```bash
+# Install test dependencies
+pip install pytest pytest-asyncio pytest-cov
+
+# Run all tests
 pytest
+
+# Run tests with coverage
+pytest --cov=weather_app --cov-report=html
+
+# Run specific test file
+pytest tests/test_domain_models.py -v
 ```
 
-### Code Formatting
+### Code Quality
 ```bash
+# Install development tools
+pip install black isort flake8 mypy
+
+# Format code
 black src/ tests/
 isort src/ tests/
+
+# Check code quality
+flake8 src/ tests/
+mypy src/
 ```
 
-### Type Checking
+### Docker Deployment
 ```bash
-mypy src/
+# Build Docker image
+docker build -t weather-multi-app .
+
+# Run web interface in Docker
+docker run -p 5000:5000 weather-multi-app
+
+# Run CLI in Docker
+docker run -it weather-multi-app python -m weather_app cli weather --city "London" --country "UK"
 ```
 
 ## Project Structure

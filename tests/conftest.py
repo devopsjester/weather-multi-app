@@ -6,8 +6,13 @@ from datetime import datetime
 from unittest.mock import AsyncMock, MagicMock
 
 from weather_app.domain.models import (
-    Location, WeatherData, DailyForecast, WeatherForecast,
-    Temperature, TemperatureUnit, WeatherCondition
+    Location,
+    WeatherData,
+    DailyForecast,
+    WeatherForecast,
+    Temperature,
+    TemperatureUnit,
+    WeatherCondition,
 )
 
 
@@ -20,7 +25,7 @@ def sample_location():
         country="US",
         zipcode="90210",
         latitude=34.0901,
-        longitude=-118.4065
+        longitude=-118.4065,
     )
 
 
@@ -44,7 +49,7 @@ def sample_weather_data(sample_location, sample_temperature):
         wind_direction=180,
         condition=WeatherCondition.CLEAR,
         description="Clear sky",
-        timestamp=datetime.now()
+        timestamp=datetime.now(),
     )
 
 
@@ -59,7 +64,7 @@ def sample_daily_forecast():
         description="Sunny",
         humidity=60,
         wind_speed=12.0,
-        precipitation_chance=10
+        precipitation_chance=10,
     )
 
 
@@ -70,7 +75,7 @@ def sample_weather_forecast(sample_location, sample_weather_data, sample_daily_f
         location=sample_location,
         current_weather=sample_weather_data,
         daily_forecasts=[sample_daily_forecast],
-        timestamp=datetime.now()
+        timestamp=datetime.now(),
     )
 
 

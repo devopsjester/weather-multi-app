@@ -11,12 +11,14 @@ from typing import Optional
 
 class TemperatureUnit(Enum):
     """Temperature unit enumeration."""
+
     CELSIUS = "celsius"
     FAHRENHEIT = "fahrenheit"
 
 
 class WeatherCondition(Enum):
     """Weather condition enumeration."""
+
     CLEAR = "clear"
     CLOUDS = "clouds"
     RAIN = "rain"
@@ -32,6 +34,7 @@ class WeatherCondition(Enum):
 @dataclass(frozen=True)
 class Location:
     """Location value object."""
+
     city: str
     state: Optional[str] = None
     country: Optional[str] = None
@@ -69,6 +72,7 @@ class Location:
 @dataclass(frozen=True)
 class Temperature:
     """Temperature value object with unit conversion."""
+
     value: float
     unit: TemperatureUnit
 
@@ -100,6 +104,7 @@ class Temperature:
 @dataclass(frozen=True)
 class WeatherData:
     """Current weather data for a location."""
+
     location: Location
     temperature: Temperature
     feels_like: Temperature
@@ -117,9 +122,25 @@ class WeatherData:
         """Convert wind direction degrees to compass direction."""
         if self.wind_direction is None:
             return "N/A"
-        
-        directions = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE",
-                     "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"]
+
+        directions = [
+            "N",
+            "NNE",
+            "NE",
+            "ENE",
+            "E",
+            "ESE",
+            "SE",
+            "SSE",
+            "S",
+            "SSW",
+            "SW",
+            "WSW",
+            "W",
+            "WNW",
+            "NW",
+            "NNW",
+        ]
         idx = round(self.wind_direction / 22.5) % 16
         return directions[idx]
 
@@ -127,6 +148,7 @@ class WeatherData:
 @dataclass(frozen=True)
 class DailyForecast:
     """Daily forecast data."""
+
     date: datetime
     high_temperature: Temperature
     low_temperature: Temperature
@@ -145,6 +167,7 @@ class DailyForecast:
 @dataclass(frozen=True)
 class WeatherForecast:
     """Multi-day weather forecast."""
+
     location: Location
     current_weather: WeatherData
     daily_forecasts: list[DailyForecast]

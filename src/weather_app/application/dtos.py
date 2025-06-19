@@ -7,6 +7,7 @@ from typing import Optional
 @dataclass
 class WeatherRequestDto:
     """DTO for weather requests."""
+
     zipcode: Optional[str] = None
     city: Optional[str] = None
     state: Optional[str] = None
@@ -24,6 +25,7 @@ class WeatherRequestDto:
 @dataclass
 class WeatherResponseDto:
     """DTO for weather responses."""
+
     location: str
     current_temperature: str
     feels_like: str

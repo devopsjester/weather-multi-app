@@ -33,15 +33,15 @@
                     <div class="text-center">
                         <div class="weather-icon mb-3">
                             {% set icon_map = {
-                                'clear': 'fas fa-sun',
-                                'clouds': 'fas fa-cloud',
-                                'rain': 'fas fa-cloud-rain',
-                                'snow': 'fas fa-snowflake',
-                                'thunderstorm': 'fas fa-bolt',
-                                'drizzle': 'fas fa-cloud-drizzle',
-                                'mist': 'fas fa-smog',
-                                'fog': 'fas fa-smog',
-                                'haze': 'fas fa-smog'
+                            'clear': 'fas fa-sun',
+                            'clouds': 'fas fa-cloud',
+                            'rain': 'fas fa-cloud-rain',
+                            'snow': 'fas fa-snowflake',
+                            'thunderstorm': 'fas fa-bolt',
+                            'drizzle': 'fas fa-cloud-drizzle',
+                            'mist': 'fas fa-smog',
+                            'fog': 'fas fa-smog',
+                            'haze': 'fas fa-smog'
                             } %}
                             <i class="{{ icon_map.get(weather.condition, 'fas fa-question') }}"></i>
                         </div>
@@ -102,15 +102,15 @@
                                 <h5 class="card-title">{{ day.day_name }}</h5>
                                 <div class="weather-icon mb-3" style="font-size: 2rem;">
                                     {% set icon_map = {
-                                        'clear': 'fas fa-sun',
-                                        'clouds': 'fas fa-cloud',
-                                        'rain': 'fas fa-cloud-rain',
-                                        'snow': 'fas fa-snowflake',
-                                        'thunderstorm': 'fas fa-bolt',
-                                        'drizzle': 'fas fa-cloud-drizzle',
-                                        'mist': 'fas fa-smog',
-                                        'fog': 'fas fa-smog',
-                                        'haze': 'fas fa-smog'
+                                    'clear': 'fas fa-sun',
+                                    'clouds': 'fas fa-cloud',
+                                    'rain': 'fas fa-cloud-rain',
+                                    'snow': 'fas fa-snowflake',
+                                    'thunderstorm': 'fas fa-bolt',
+                                    'drizzle': 'fas fa-cloud-drizzle',
+                                    'mist': 'fas fa-smog',
+                                    'fog': 'fas fa-smog',
+                                    'haze': 'fas fa-smog'
                                     } %}
                                     <i class="{{ icon_map.get(day.condition, 'fas fa-question') }}"></i>
                                 </div>
@@ -145,8 +145,8 @@
             <div class="mt-4 text-center">
                 <small class="text-muted">
                     <i class="fas fa-info-circle me-1"></i>
-                    Temperature in {{ weather.units.temperature }}, 
-                    Speed in {{ weather.units.speed }}, 
+                    Temperature in {{ weather.units.temperature }},
+                    Speed in {{ weather.units.speed }},
                     Distance in {{ weather.units.distance }}
                 </small>
             </div>
