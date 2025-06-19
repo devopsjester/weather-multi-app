@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block title %}Weather Search - Weather App{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="weather-card p-5 text-center">
+            <h1 class="display-4 mb-4">
+                <i class="fas fa-cloud-sun weather-icon"></i>
+            </h1>
+            <h2 class="mb-4">Get Weather Forecast</h2>
+            <p class="lead mb-5">Enter a location to get current weather and 3-day forecast</p>
+
+            <form method="POST" action="{{ url_for('weather') }}">
+                <div class="row g-3">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-map-marker-alt me-2"></i>
+                                    Location Options
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <label for="zipcode" class="form-label">
+                                            <i class="fas fa-mail-bulk me-1"></i>
+                                            US Zipcode
+                                        </label>
+                                        <input type="text" class="form-control" id="zipcode" name="zipcode" 
+                                               placeholder="e.g., 90210" maxlength="10">
+                                        <div class="form-text">Enter a US zipcode (5 or 9 digits)</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mt-3">
+                                    <div class="col-12 text-center">
+                                        <span class="badge bg-secondary">OR</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="row g-3 mt-2">
+                                    <div class="col-md-6">
+                                        <label for="city" class="form-label">
+                                            <i class="fas fa-city me-1"></i>
+                                            City
+                                        </label>
+                                        <input type="text" class="form-control" id="city" name="city" 
+                                               placeholder="e.g., Los Angeles">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="state" class="form-label">
+                                            <i class="fas fa-flag me-1"></i>
+                                            State/Province
+                                        </label>
+                                        <input type="text" class="form-control" id="state" name="state" 
+                                               placeholder="e.g., CA or Ontario">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="country" class="form-label">
+                                            <i class="fas fa-globe me-1"></i>
+                                            Country (optional for US)
+                                        </label>
+                                        <input type="text" class="form-control" id="country" name="country" 
+                                               placeholder="e.g., USA, Canada, UK">
+                                        <div class="form-text">Leave blank for US locations</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-search me-2"></i>
+                            Get Weather Forecast
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h5>Examples:</h5>
+                    <div class="row g-2 mt-2">
+                        <div class="col-md-4">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <h6>US Zipcode</h6>
+                                    <code>90210</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <h6>US City + State</h6>
+                                    <code>Los Angeles, CA</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <h6>International</h6>
+                                    <code>Toronto, ON, Canada</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Clear other fields when zipcode is entered
+    document.getElementById('zipcode').addEventListener('input', function() {
+        if (this.value.trim()) {
+            document.getElementById('city').value = '';
+            document.getElementById('state').value = '';
+            document.getElementById('country').value = '';
+        }
+    });
+
+    // Clear zipcode when city is entered
+    document.getElementById('city').addEventListener('input', function() {
+        if (this.value.trim()) {
+            document.getElementById('zipcode').value = '';
+        }
+    });
+</script>
+{% endblock %}
