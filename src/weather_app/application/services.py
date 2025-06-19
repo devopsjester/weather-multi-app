@@ -79,6 +79,9 @@ class WeatherService:
                 location.city, location.state, location.country
             ):
                 raise InvalidLocationFormatError("City, state, and country cannot be empty")
+        elif location.city and location.country and not location.state:
+            if not self.validator.validate_city_country(location.city, location.country):
+                raise InvalidLocationFormatError("City and country cannot be empty")
         else:
             raise InvalidLocationFormatError("Invalid location format")
 

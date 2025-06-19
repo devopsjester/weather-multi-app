@@ -39,7 +39,7 @@ def cli(verbose, zipcode, city, state, country):
 
 @main.command()
 @click.option("--host", "-h", default="0.0.0.0", help="Host to bind to")
-@click.option("--port", "-p", default=5000, help="Port to bind to")
+@click.option("--port", "-p", default=8000, help="Port to bind to")
 @click.option("--debug", "-d", is_flag=True, help="Enable debug mode")
 def web(host, port, debug):
     """Run the Flask web interface."""
